@@ -26,7 +26,7 @@ for i in range (2018,-1,-4):
     print(i)
 
 def counting(lowNum, highNum, mult):
-    for i in range (lowNum, highNum):
+    for i in range (lowNum, highNum+1):
         if i%mult == 0:
             print(i)
 
