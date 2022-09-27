@@ -1,7 +1,3 @@
-from os import umask
-from runpy import run_module
-from xml.etree.ElementPath import get_parent_map
-
 
 class user:
     def __init__(self, firstname, lastname, email, age, rewards_member=False, gold_card_points=0 ):
