@@ -1,10 +1,10 @@
-from flask import Flask  # Import Flask to allow us to create our app
+from flask import Flask, render_template  # Import Flask to allow us to create our app
 app = Flask(__name__)    # Create a new instance of the Flask class called "app"
 
 
 @app.route('/')          # The "@" decorator associates this route with the function immediately following
 def hello_world():
-    return 'Hello World!'
+    return render_template('index.html')
 
 
 @app.route('/', defaults={'path': ''})
@@ -12,6 +12,17 @@ def hello_world():
 def catch_all(path):
     return "Sorry, this is not a valid path!"
 
+@app.route('/play')
+def playground():
+    return render_template('playground.html', repeat=3, color='lightblue')
+
+@app.route('/play/<int:num>')
+def playgroundrepeat(num):
+    return render_template('playground.html', repeat=num, color='lightblue')
+
+@app.route('/play/<int:num>/<string:color>')
+def playgroundrepeatcolor(num, color):
+    return render_template('playground.html', repeat=num, color=color)
 @app.route('/success')
 def success():
     return "success"
