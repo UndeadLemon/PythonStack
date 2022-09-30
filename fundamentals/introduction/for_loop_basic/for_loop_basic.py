@@ -31,3 +31,4 @@ def counting(lowNum, highNum, mult):
             print(i)
 
 counting(1,100,3)
+

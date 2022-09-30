@@ -7,9 +7,8 @@ def hello_world():
     return render_template('index.html')
 
 
-@app.route('/', defaults={'path': ''})
-@app.route('/<path:path>')
-def catch_all(path):
+@app.errorhandler(404)
+def errorhandling(error):
     return "Sorry, this is not a valid path!"
 
 @app.route('/play')

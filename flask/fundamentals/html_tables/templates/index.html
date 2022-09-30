@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+    <title>HTML Tables</title>
+    
+    
+</head>
+<body>
+    <table class="table table-striped table-bordered table-dark" style="max-width:50em">
+        <thead>
+            <tr>
+                <th scope="col">
+                    First Name
+                </th>
+                
+                <th scope="col">
+                    Last Name
+                </th>
+                <th scope="col">
+                    Full Name
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in users: %}
+            <tr>
+                
+                
+                <td>
+                    {{i['first_name']}}
+                </td>
+                <td>
+                    {{i['last_name']}}
+                </td>
+                <td>
+                    {{i['first_name']}} {{i['last_name']}}
+                </td>
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

@@ -47,10 +47,34 @@ dojo = {
 
 
 def printInfo(some_dict):
-     
+    """
+    >>> printInfo(dojo)
+    7 locations
+    San Jose
+    Seattle
+    Dallas
+    Chicago
+    Tulsa
+    DC
+    Burbank
+    8 instructors
+    Michael
+    Amy
+    Eduardo
+    Josh
+    Graham
+    Patrick
+    Minh
+    Devon
+    """
+    
     for key in some_dict:
         length = len(some_dict[key])
         print(f"{length} {key}")
         for i in range(0,length):
             print(some_dict[key][i])
 printInfo(dojo)
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
