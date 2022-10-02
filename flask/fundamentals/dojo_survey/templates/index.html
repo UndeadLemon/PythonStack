@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha256-/ykJw/wDxMa0AQhHDYfuMEwVb4JHMx9h4jD4XvHqVzU=" crossorigin="anonymous" />
+    <title>Survey Form</title>
+</head>
+<body class="bg-dark text-white">
+    <div style="max-width:800px">
+        <form action="processing" method="POST" >
+            <div class="form-group">
+                <div>
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName">
+            </div>
+            <div>
+                <label for="lastName">Last Name:</label>
+                <input type="test" id="lastName" name="lastName">
+            </div>
+            
+            </div>
+            <div class="form-group">
+                <p>Do you like toast?:</p>
+                <label for="yesToast">Yes</label>
+                <input type="radio" id="yesToast" name="likeToast" value="Yes">
+                <label for="noToast">No</label>
+                <input type="radio" id="noToast" name="likeToast" value="No">
+            </div>
+            <div class ="form-group">
+                <p>What Languages do you know?</p>
+                <input type="checkbox" id="language1" name="javascript" value="True">
+                <label for="language1">Javascript</label><br>
+                <input type="checkbox" id="language2" name="python" value="True">
+                <label for="language2">Python</label><br>
+                <input type="checkbox" id="language3" name="csharp" value="True">
+                <label for="language3">C#</label><br> 
+            </div>
+                <input type="submit">
+        </form>
+    </div>
+    <div>
+        <a class="btn btn-primary" href="results">
+            Results
+        </a>
+    </div>
+    
+</body>
+</html>
