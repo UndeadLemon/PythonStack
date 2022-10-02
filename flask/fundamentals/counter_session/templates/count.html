@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha256-/ykJw/wDxMa0AQhHDYfuMEwVb4JHMx9h4jD4XvHqVzU=" crossorigin="anonymous" />
+    <title>Counter</title>
+</head>
+<body class = "bg-dark">
+    <div class = "d-flex justify-content-center" style = "padding-top:2em">
+        <p style="color:white">
+            The Count is at: {{count}}<br>
+            Page visited: {{visited}} times
+        </p>
+        
+    </div>
+    <div class="d-flex justify-content-center">
+        <a class="btn btn-primary" href="count">
+            Add
+        </a>
+        <a class="btn btn-secondary" href="add">
+            Add+{{session['form']['add_amount']}}
+        </a>
+        <a class="btn btn-primary" href="refresh">
+            Restart
+        </a>
+    </div>
+    <div  class="d-flex justify-content-center" style="margin-top:1em">
+        <form action="processing" method = "POST">
+            <input type = "number" name = "add_amount" />
+            <input class = "btn btn-primary" type = "submit" value = "Submit change" />
+        </form>
+    </div>
+</body>
+</html>
