@@ -7,19 +7,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha256-/ykJw/wDxMa0AQhHDYfuMEwVb4JHMx9h4jD4XvHqVzU=" crossorigin="anonymous" />
     <title>Survey Form</title>
 </head>
-<body class="bg-dark text-white">
-    <div>
+<body class="bg-dark container text-white">
+    <div class="mt-3">
 
             <p>
-                First Name: {{fName}}
+                First Name: {{session['firstName']}}
                 
             </p>
             <p>
-                Last Name: {{lName}}
+                Last Name: {{session['lastName']}}
                 
             </p>
             <p>
-                Do they like toast?: {{toastPreference}}
+                Do they like toast?: {{session['likesToast']}}
             </p>
             <p>
                 What Languages do they know?:
@@ -33,6 +33,7 @@
                 <br>C#
                 {% endif %}
             </p>
+            <a href="/" class="btn btn-primary">Return</a>
             <!-- <p>
                 debug:{{debug}}
             </p> -->
