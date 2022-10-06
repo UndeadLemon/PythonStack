@@ -5,16 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha256-/ykJw/wDxMa0AQhHDYfuMEwVb4JHMx9h4jD4XvHqVzU=" crossorigin="anonymous" />
-    <title>Read (ALL)</title>
+    <title>Read (ONE)</title>
 </head>
 <body>
     <div class="row ">
 
         <h1 class="col-3 ml-3 border">Results</h1>
         <h1 class="col-1 border">Actions</h1>
-        <a class = "btn btn-primary" href="user_form">Add User</a>
+        <a class = "btn btn-primary" href="../user_form">Add User</a>
     </div>
-    {% for user in users %}
+
     <div class="row">
         <div class="col-3 ml-3 mt-1 border border-secondary">
             <p>First Name: {{user.first_name}}</p>
@@ -23,11 +23,11 @@
             <p>Created At/Last Updated: {{user.created_at}} / {{user.updated_at}} </p>
         </div>
         <div class="col-1 mt-1 border border-primary">
-            <a href = "showone/{{user.id}}">Show</a>
-            <a href = "edit/{{user.id}}">Edit</a>
-            <a href = "delete/{{user.id}}">Delete</a>
+            
+            <a href = "../edit/{{user.id}}">Edit</a>
+            <a href = "../delete/{{user.id}}">Delete</a>
         </div>
     </div>
-    {% endfor %}
+    
 </body>
 </html>

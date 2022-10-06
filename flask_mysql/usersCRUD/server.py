@@ -20,9 +20,45 @@ def user_create_page():
 @app.route('/add_user', methods=["POST"])
 def add_user():
     data = request.form
-    User.save(data)
+    id = User.save(data)
+    return redirect(f'/showone/{id}')
+
+@app.route('/showone/<id>')
+def show_one(id):
+    data={
+        'id':id
+        }
+        
+    
+    user=User.get_one(data)
+    print(user)
+    return render_template('readone.html', user=user[0])
+
+@app.route('/edit/<id>')
+def edit_one(id):
+    data={
+        'id':id
+    }
+    user=User.get_one(data)
+
+
+    return render_template('editone.html', id=id, user=user[0])
+@app.route('/edit_one_user', methods=['POST'])
+def edit_one_process():
+    id=request.form['id']
+    data=request.form
+    User.update(data)
+    return redirect(f'/showone/{id}')
+
+@app.route('/delete/<id>')
+def delete(id):
+    data={
+        'id':id
+    }
+    User.delete(data)
     return redirect('/read')
 
+    return False
 class User:
     def __init__(self,data):
         self.first_name=data['first_name']
@@ -36,7 +72,22 @@ class User:
         query = "INSERT INTO users (first_name, last_name, email, created_at, updated_at) VALUES ( %(first_name)s, %(last_name)s, %(email)s, NOW(), NOW() );"
 
         return connectToMySQL('users_schema').query_db(query, data)
+    @classmethod
+    def delete(cls, data):
+        query = "DELETE FROM users WHERE id=%(id)s"
 
+        return connectToMySQL('users_schema').query_db(query, data)
+    @classmethod
+    def update(cls, data):
+        query = "UPDATE users SET first_name = %(first_name)s, last_name=%(last_name)s, email=%(email)s, updated_at=NOW() WHERE id=%(id)s"
+
+        return connectToMySQL('users_schema').query_db(query, data)
+
+    @classmethod
+    def get_one(cls, data):
+        query= "SELECT * FROM users WHERE users.id = %(id)s"
+
+        return connectToMySQL('users_schema').query_db(query, data)
     @classmethod
     def get_all(cls):
         query = "SELECT * FROM users;"
