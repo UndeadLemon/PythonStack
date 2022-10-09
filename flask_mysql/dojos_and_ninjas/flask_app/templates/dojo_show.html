@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha256-/ykJw/wDxMa0AQhHDYfuMEwVb4JHMx9h4jD4XvHqVzU=" crossorigin="anonymous" />
+    <title>Dojo Page</title>
+</head>
+<body class="container">
+
+<div class="row dflex mt-3 border border-primary">
+
+        
+
+    <h4>Add Dojo Form:</h4>
+    
+    <form class= "col-4" action="/dojo_add" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" name="name">
+        <input type="submit" value="Add Dojo">
+    </form>
+    
+    <div class="col-2 border border-secondary" style="overflow:scroll;">
+        <h2>Dojos</h2>
+        
+    {% for dojo in dojos %}
+
+
+            <a href="dojo_show_one/{{dojo.id}}">{{dojo.name}}</a><br>
+
+
+    
+    {% endfor %}
+</div>
+</div>
+<div>
+    <a href="/ninja_add">Add Ninja?</a>
+</div>
+
+</body>
+</html>

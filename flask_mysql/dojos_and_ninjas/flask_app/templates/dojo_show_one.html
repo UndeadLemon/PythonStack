@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha256-/ykJw/wDxMa0AQhHDYfuMEwVb4JHMx9h4jD4XvHqVzU=" crossorigin="anonymous" />
+    <title>Read (ONE)</title>
+</head>
+<body>
+    <div class="row ">
+
+        <h1 class="col-3 ml-3 border">Results</h1>
+        <h1 class="col-1 border">Actions</h1>
+        <a class = "btn btn-primary" href="../dojo_form">Add Dojo</a>
+        <a class = "btn btn-secondary" href="../dojo">Home</a>
+    </div>
+
+    <div class="row">
+        <div class="col-3 ml-3 mt-1 border border-secondary">
+            <p>Dojo Name: {{dojo[0]['dojos.name']}}</p>
+            <p>Created At/Last Updated: {{dojo[0]['dojos.created_at']}} / {{dojo[0]['dojos.updated_at']}} </p>
+        </div>
+        <div class="col-1 mt-1 border border-primary">
+            
+            <a href = "../dojo_edit/{{dojo[0]['dojos.id']}}">Edit</a>
+            <a href = "../dojo_delete/{{dojo[0]['dojos.id']}}">Delete</a>
+        </div>
+    </div>
+    <div class="row">
+        <table class="ml-2 table table-striped table-bordered table-dark" style="max-width:50em">
+            <thead>
+                <tr>
+                    <th scope="col">
+                        Name
+                    </th>
+                    
+                    <th scope="col">
+                        ID
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ninja in dojo: %}
+                <tr>
+                    
+                    
+                    <td>
+                        {{ninja.name}}
+                    </td>
+                    <td>
+                        {{ninja.id}}
+                    </td>
+
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+</body>
+</html>
